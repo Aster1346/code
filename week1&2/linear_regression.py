@@ -6,13 +6,17 @@ import matplotlib.pyplot as plt
 # 生成模拟数据用以训练
 np.random.seed(42)
 x = np.linspace(-5, 5, 100)
-noise = np.random.normal(0, 1, size=100)
+#noise = np.random.normal(0, 1, size=100)
+noise = np.random.normal(0, 5, size=100)  # 调大噪声看看
 y = 2 * x + 1 + noise
 
 # 初始化参数
-w = 0.0
-b = 0.0
+w , b = 0.0, 0.0
+#w，b = np.random.randn(2)  # 随机初始化参数
+#w , b = 2 , 1 #不小心猜中了    
 lr = 0.01
+#lr = 0.1
+#lr = 0.001
 epochs = 1000#训练轮数
 loss_history = []#误差记录
 
@@ -45,6 +49,7 @@ plt.figure(figsize=(12, 4))
 
 plt.subplot(1, 2, 1)
 plt.scatter(x, y, alpha=0.6, label="noisy data")
+plt.plot(x, 2 * x + 1, color="blue", linewidth=2, label="true: y = 2x + 1")
 plt.plot(x, w * x + b, color="red", linewidth=2,
          label=f"pred: y = {w:.3f}x + {b:.3f}")
 plt.xlabel("x")
@@ -59,3 +64,4 @@ plt.ylabel("MSE loss")
 plt.title("Training Loss")
 plt.tight_layout()
 plt.show()
+

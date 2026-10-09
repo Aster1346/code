@@ -1,4 +1,3 @@
-print("Hello")
 import numpy as np
 import matplotlib.pyplot as plt
 x = np.linspace(-5,5,100)
@@ -33,6 +32,7 @@ l = np.linspace(0,1,5)#[0,0.25,0.5,0.75,1]
 #随机数
 rand = np.random.rand(2,3)#两行三列，0到1随机小数
 randint = np.random.randint(0,10,(2,3))#两行三列，0到9随机整数
+noise = np.random.normal(0, 1, size=100)#100个服从正态分布的随机数，模拟误差
 
 """查看数组属性"""
 A = np.array([[1,2,3],
@@ -53,3 +53,7 @@ print(u*10)#向量数乘[10,20,30]
 print(np.dot(u,v))#向量点积32
 print(u@v)#向量点积32
 print(np.linalg.norm(u))#向量模3.7416573867739413
+
+#统计
+print(np.mean(u))#向量均值2.0
+   
